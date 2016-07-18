@@ -27,7 +27,7 @@ router.post('/', function(req, res, next){
 			console.log('mail sent: ' + response.message);
 		}
 	});
-	response.writeHead(302, {Location: "https://www.google.com.ar"});
+	res.writeHead(302, {Location: "https://www.google.com.ar"});
 	res.end();
 	// var userName = req.body.email;
 	// var html = 'Hello: ' + userName + '.<br>' +
