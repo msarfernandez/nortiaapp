@@ -18,8 +18,8 @@ router.post('/', function(req, res, next){
 	smtpTransport.sendMail({
 		from: 'consulta@nortia.com.ar',
 		to: 'msarfernandez@gmail.com',
-		subject: 'Consulta Web - ' + req.body.nombre,
-		text: req.body.textmail + '\n' + req.body.email
+		subject: 'Consulta Web - ' + req.nombre,
+		text: req.textmail + '\n' + req.email
 	}, function(error, response){
 		if (error){
 			console.log(error);
