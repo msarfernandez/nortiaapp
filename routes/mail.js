@@ -17,9 +17,9 @@ router.post('/', function(req, res, next){
 
 	smtpTransport.sendMail({
 		from: 'consulta@nortia.com.ar',
-		to: req.body.email,
-		subject: 'Consulta Web',
-		text: req.body.textmail
+		to: 'msarfernandez@gmail.com',
+		subject: 'Consulta Web ' + req.body.nombre,
+		text: req.body.textmail + '\n' + req.body.email
 	}, function(error, response){
 		if (error){
 			console.log(error);
@@ -27,11 +27,12 @@ router.post('/', function(req, res, next){
 			console.log('mail sent: ' + response.message);
 		}
 	});
+	res.end();
+	// var userName = req.body.email;
+	// var html = 'Hello: ' + userName + '.<br>' +
+	//             '<a href="/">Try again.</a>';
+	// res.send(html);
 
-	var userName = req.body.email;
-	var html = 'Hello: ' + userName + '.<br>' +
-	            '<a href="/">Try again.</a>';
-	res.send(html);
 });
 
 module.exports = router;
